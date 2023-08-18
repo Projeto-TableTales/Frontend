@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as RouterLink } from 'react-router-dom';
 
 export const Container = styled.div`
     height: 80vh;
@@ -42,7 +43,7 @@ export const Input = styled.input`
     margin-bottom: 1rem;
 `;
 
-export const Link = styled.a`
+export const CustomRouterLink = styled(RouterLink)`
     color: #290532 !important;
     align-self: flex-end;
 `;
