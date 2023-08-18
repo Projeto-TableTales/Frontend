@@ -15,6 +15,7 @@ export const Title = styled.h1`
     background-color: #643A6F;
     width: 184px;
     border-radius: 11.6px;
+    text-align: center;
 `;
 export const Form = styled.form`
     display:flex;
