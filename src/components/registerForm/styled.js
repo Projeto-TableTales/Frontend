@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link as RouterLink } from 'react-router-dom';
 
 export const Container = styled.div`
     height: 80vh;
@@ -25,26 +24,39 @@ export const Form = styled.form`
     gap:1.5rem;
 `;
 export const Box = styled.div`
-    width : 439px;
+margin-right: 15px;
+margin-left: 15px;
     display:flex;
     flex-direction: column;
-    padding: 1rem 3rem 2rem 3rem;
+    padding: 2rem 1.5rem 2rem 1.5rem;
     background-color:#85608E;
     border-radius: 20px;
     color: #290532 !important;
+    text-align: left;
 `;
 
 export const Input = styled.input` 
+
     padding: 8px;
     outline: none;
     border: none;
     background-color: #D9D9D9;
     border-radius: 11.6px;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 5px;
+    margin-bottom:5px;
+    margin-right: 10px;
+    &:nth-child(1) {
+        width: 30%; 
+    }
+    &:nth-child(2){
+        width: 30%;
+    }
+    &:nth-child(3) {
+        width: 25%; /* Por exemplo, ocupa 60% da largura da div pai */
+    }
 `;
 
-export const CustomRouterLink = styled(RouterLink)`
+export const Link = styled.a`
     color: #290532 !important;
     align-self: flex-end;
 `;

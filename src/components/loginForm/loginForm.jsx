@@ -1,4 +1,5 @@
-import { Box, Button, Container, Form, Input, Link, Title } from "./styled";
+import { Box, Button, Container, Form, Input, Title } from "./styled";
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
     return(
@@ -12,7 +13,8 @@ const LoginForm = () => {
                 </Box>
                 <Button>ENTER</Button>
             </Form>
-            <p>New here? <Link href="">Create an account</Link> </p>
+            
+            <p>New here? <Link to="/register">Create an account</Link> </p>
         </Container>
     )
 }
