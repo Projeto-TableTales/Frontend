@@ -1,16 +1,14 @@
-import { Box, Button, Container, Form, Input, Title } from "./styled";
+import { Button, Container, Form, Input, Title} from "./styled";
 import { Link } from 'react-router-dom';
-
 const LoginForm = () => {
     return(
         <Container>
             <Title> SIGN IN</Title>
             <Form>
-                <Box>
+
                     <Input type="email" placeholder="E-mail"/>
                     <Input type="password" placeholder="Password"/>
                     <Link href="">Forgot your password?</Link>
-                </Box>
                 <Button>ENTER</Button>
             </Form>
             
