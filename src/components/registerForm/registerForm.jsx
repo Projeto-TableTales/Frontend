@@ -1,4 +1,4 @@
-import { Box, Button, Container, Form, Input, Link, Title } from "./styled";
+import {  Button, Container, Form, Input, Link, Title } from "./styled";
 
 const RegisterForm = () => {
   return (

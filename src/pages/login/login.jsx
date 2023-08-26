@@ -1,6 +1,6 @@
 import LoginForm from "../../components/loginForm/loginForm";
 import SideLogo from "../../components/sideLogo/sideLogo";
-import { Box, Button, Container, Form, Input, Link, Title } from "./styled";
+import {Container} from "./styled";
 
 const Login = () => {
     return(
