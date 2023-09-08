@@ -1,0 +1,30 @@
+body{
+  background: rgb(235, 54, 211); /* Cor do Plano de Fundo do body. */
+}
+
+#primeiro_h1{ /* id do elemento h1, que se chama primeiro_h1 */
+  color: white; /* Cor para o Texto. */
+  text-align: center; /* Alinhando o texto, para o centro. */
+}
+
+#cor_tamanho_texto_1{
+  font-size: 20px;
+  color: white;
+}
+
+.estilo_div_1{ /* Classe, chamada estilo_div_1 */
+  background-color: rgba(148, 67, 38, 0.767); /** Define a cor de um único elemento (nesse caso aqui, será para a tag div, que usará essa classe).*/
+  text-align: center;
+  margin-top:100px; /* Espaço Externo, do topo. */
+  margin-bottom:15px; /* Espaço Externo, da parte inferior. */
+  margin-right:200px; /* Espaço Externo, do lado direito. */
+  margin-left:200px; /* Espaço Externo, do lado esquerdo. */
+  border: .1px solid black; /* Borda */
+  box-shadow:3px 0px 10px; /* Sombreamento para a borda. */
+}
+
+.estilo_classe_1{
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
