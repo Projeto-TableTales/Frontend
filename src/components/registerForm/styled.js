@@ -15,7 +15,7 @@ export const Title = styled.h1`
     background-color: #643A6F;
     width: 184px;
     border-radius: 11.6px;
-    text-align: center;
+    text-align:center;
 `;
 export const Form = styled.form`
     display:flex;
@@ -23,10 +23,17 @@ export const Form = styled.form`
     align-items: center;
     gap:1.5rem;
 `;
+export const Line = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:1.5rem;
+`;
 
 export const Input = styled.input` 
+    border: none;
+    padding: 10px 15px;
     width : 240px;
-    padding: 15px;
     outline: none;
     border: none;
     background-color: #FFFFFF;
@@ -35,11 +42,14 @@ export const Input = styled.input`
     margin-bottom: 0.2rem;
     
 `;
+export const EmailInput = styled(Input)`
+    width : 540px;
+    padding:11px
+`;
 
 export const Link = styled(RouterLink)`
     color: #290532 !important;
     align-self: flex-end;
-    align-self: center;
 `;
 
 export const Button = styled.button`

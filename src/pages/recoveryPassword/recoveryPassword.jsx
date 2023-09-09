@@ -1,14 +1,14 @@
-import LoginForm from "../../components/loginForm/loginForm";
+import RecoveryForm from "../../components/recoveryForm/recoveryForm";
 import SideLogo from "../../components/sideLogo/sideLogo";
 import {Container} from "./styled";
 
-const Login = () => {
+const ForgotPassword = () => {
     return(
         <Container>
            <SideLogo />
-           <LoginForm />
+           <RecoveryForm />
         </Container>
     )
 }
 
-export default Login;
+export default ForgotPassword;

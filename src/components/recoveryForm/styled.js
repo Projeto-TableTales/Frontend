@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link as RouterLink } from "react-router-dom";
 export const Container = styled.div`
     height: 80vh;
     width: 612px;
@@ -13,9 +12,10 @@ export const Container = styled.div`
 export const Title = styled.h1`
     color: #D2C5C5;
     background-color: #643A6F;
-    width: 184px;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
     border-radius: 11.6px;
-    text-align: center;
 `;
 export const Form = styled.form`
     display:flex;
@@ -25,8 +25,9 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input` 
-    width : 240px;
-    padding: 15px;
+    border: none;
+    padding: 10px 15px;
+    width : 440px;
     outline: none;
     border: none;
     background-color: #FFFFFF;
@@ -36,17 +37,11 @@ export const Input = styled.input`
     
 `;
 
-export const Link = styled(RouterLink)`
-    color: #290532 !important;
-    align-self: flex-end;
-    align-self: center;
-`;
-
 export const Button = styled.button`
     color: #D2C5C5;
     background-color: #643A6F;
     width: 141px;
-    padding: 10px;
+    padding: 5px;
     font-size: 17px;
     font-weight: bold;
     border-radius: 11.6px;
