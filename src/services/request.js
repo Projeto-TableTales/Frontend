@@ -1,4 +1,4 @@
-/*import axios from 'axios'
+import axios from 'axios'
 
 const baseurl="http://localhost:8080/rpgwiki/"
 export const logIn = async (
@@ -7,14 +7,14 @@ export const logIn = async (
     setData,
     setError
 ) => {
-
+    setLoading(true)
 
     try {
         const response = await axios.post(baseurl + endpoint, body)
         setData(response.data.token)
-
+        setLoading(false)
     } catch (error) {
-      
+        setLoading(false)
         setError(error.response?.data?.error || error.message)
     }
 }
@@ -33,4 +33,3 @@ export const signup = async (
         setError(error.response?.data?.error || error.message)
     }
 }
-*/
