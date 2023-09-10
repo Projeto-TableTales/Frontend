@@ -12,11 +12,11 @@ export const Container = styled.div`
 export const Title = styled.h1`
   color: #d2c5c5;
   background-color: #643a6f;
-  width: 184px;
+  width: 254px;
   border-radius: 24px;
   text-align: center;
   font-size: 24px;
-  padding: 10px;
+  padding: 14px;
 `;
 export const Form = styled.form`
     display:flex;
