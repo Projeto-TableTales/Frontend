@@ -1,4 +1,12 @@
-import { Button, Container, Form, Input, Link, Title } from "./styled";
+import {
+  Button,
+  Container,
+  Form,
+  Input,
+  Link,
+  Title,
+  ErrorMessage,
+} from "./styled";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +14,8 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const navigate = useNavigate(); 
+  const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
@@ -26,6 +35,13 @@ const LoginForm = () => {
       navigate("/home");
     } catch (error) {
       console.error("Erro de login:", error);
+      if (error.response) {
+        setErrMsg("Credenciais inválidas. Verifique seu email e senha.");
+      } else {
+        setErrMsg(
+          "Ocorreu um erro ao fazer o login. Tente novamente mais tarde."
+        );
+      }
     }
   };
 
@@ -45,7 +61,7 @@ const LoginForm = () => {
           required
           onChange={(e) => setSenha(e.target.value)}
         />
-
+        {errMsg ? <ErrorMessage>{errMsg}</ErrorMessage> : null}
         <Link to="/forgotPassword">Forgot your password?</Link>
         <Button type="submit">ENTER</Button>
       </Form>

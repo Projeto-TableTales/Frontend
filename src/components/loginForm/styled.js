@@ -23,6 +23,9 @@ export const Form = styled.form`
     align-items: center;
     gap:1.5rem;
 `;
+export const ErrorMessage = styled.form`
+   color: red;
+`;
 
 export const Input = styled.input` 
     width : 240px;
