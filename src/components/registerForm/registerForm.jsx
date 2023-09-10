@@ -55,6 +55,7 @@ const RegisterForm = () => {
         setErrMsg("Ocorreu um erro ao fazer o registro. Tente novamente.");
       }
     }
+
   };
   return (
     <Container>
