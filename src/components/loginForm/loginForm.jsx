@@ -1,39 +1,75 @@
-import { logIn } from "../../Services/request";
-import { Button, Container, Form, Input, Title} from "./styled";
-import { Link } from 'react-router-dom';
-const LoginForm = () => {
-    const navigate = useNavigate()
-    const [messageError, setMessageError] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [sucesso, setSucesso] = useState(false)
-    const handleButtonClick = (event) => {
-      event.preventDefault();
-      const body = {senha,email}
-  
-      logIn('login', body,setSucesso,setMessageError)
-      sucesso && navigate('/')
-    }
-    const onChangeEmail = (event) => {
-      setEmail(event.target.value);
-    };
-    const onChangeSenha = (event) => {
-      setSenha(event.target.value);
-    };
-    return(
-        <Container>
-            <Title> SIGN IN</Title>
-            <Form>
+import {
+  Button,
+  Container,
+  Form,
+  Input,
+  Link,
+  Title,
+  ErrorMessage,
+} from "./styled";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-                    <Input type="email" placeholder="E-mail" value={email} onChange={onChangeEmail}/>
-                    <Input type="password" placeholder="Password" value={senha} onChange={onChangeSenha}/>
-                    <Link href="">Forgot your password?</Link>
-                <Button>ENTER</Button>
-            </Form>
-            
-            <p>New here? <Link to="/register">Create an account</Link> </p>
-        </Container>
-    )
-}
+const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
+
+  const submit = async (e) => {
+    e.preventDefault();
+    console.log(email, senha);
+    try {
+      const response = await axios.post("http://localhost:8080/rpgwiki/login", {
+        email: email,
+        senha: senha,
+      });
+      // Extrair o token da resposta
+      const token = response.data.token;
+
+      // Armazenar o token no localStorage
+      localStorage.setItem("token", token);
+
+      console.log(111);
+      navigate("/home");
+    } catch (error) {
+      console.error("Erro de login:", error);
+      if (error.response) {
+        setErrMsg("Credenciais inválidas. Verifique seu email e senha.");
+      } else {
+        setErrMsg(
+          "Ocorreu um erro ao fazer o login. Tente novamente mais tarde."
+        );
+      }
+    }
+  };
+
+  return (
+    <Container>
+      <Title>SIGN IN</Title>
+      <Form onSubmit={submit}>
+        <Input
+          type="email"
+          placeholder="E-mail"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          required
+          onChange={(e) => setSenha(e.target.value)}
+        />
+        {errMsg ? <ErrorMessage>{errMsg}</ErrorMessage> : null}
+        <Link to="/forgotPassword">Forgot your password?</Link>
+        <Button type="submit">ENTER</Button>
+      </Form>
+      <p>
+        New here? <Link to="/register">Create an account</Link>
+      </p>
+    </Container>
+  );
+};
 
 export default LoginForm;
