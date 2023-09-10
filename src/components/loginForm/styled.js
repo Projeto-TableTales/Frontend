@@ -31,7 +31,9 @@ export const Box = styled.div`
     border-radius: 20px;
     color: #290532 !important;
 `;
-
+export const ErrorMessage = styled.form`
+  color: red;
+`;
 export const Input = styled.input` 
     padding: 8px;
     outline: none;
