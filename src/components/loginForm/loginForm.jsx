@@ -1,39 +1,59 @@
-import {Button, Container, Form, Input, Link, Title } from "./styled";
-/*import { useNavigate } from "react-router-dom/dist";
+import { Button, Container, Form, Input, Link, Title } from "./styled";
 import { useState } from "react";
-import { logIn } from "../../Services/request";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const LoginForm = () => {
-    const navigate = useNavigate()
-    const [messageError, setMessageError] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [sucesso, setSucesso] = useState(false)
-    const handleButtonClick = (event) => {
-      event.preventDefault();
-      const body = {senha,email}
-  
-      logIn('login', body,setSucesso,setMessageError)
-      sucesso && navigate('/')
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const navigate = useNavigate(); 
+
+  const submit = async (e) => {
+    e.preventDefault();
+    console.log(email, senha);
+    try {
+      const response = await axios.post("http://localhost:8080/rpgwiki/login", {
+        email: email,
+        senha: senha,
+      });
+      // Extrair o token da resposta
+      const token = response.data.token;
+
+      // Armazenar o token no localStorage
+      localStorage.setItem("token", token);
+
+      console.log(111);
+      navigate("/home");
+    } catch (error) {
+      console.error("Erro de login:", error);
     }
-    const onChangeEmail = (event) => {
-      setEmail(event.target.value);
-    };
-    const onChangeSenha = (event) => {
-      setSenha(event.target.value);
-    };*/
-const LoginForm = () => {
-    return(
-        <Container>
-            <Title> SIGN IN</Title>
-            <Form>
-                <Input type="email" placeholder="E-mail"/>
-                <Input type="password" placeholder="Password"/>
-                <Link to="/forgotPassword">Forgot your password?</Link>
-                <Button>ENTER</Button>
-            </Form>
-            <p>New here? <Link to="/register">Create an account</Link> </p>
-        </Container>
-    )
-}
+  };
+
+  return (
+    <Container>
+      <Title>SIGN IN</Title>
+      <Form onSubmit={submit}>
+        <Input
+          type="email"
+          placeholder="E-mail"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          required
+          onChange={(e) => setSenha(e.target.value)}
+        />
+
+        <Link to="/forgotPassword">Forgot your password?</Link>
+        <Button type="submit">ENTER</Button>
+      </Form>
+      <p>
+        New here? <Link to="/register">Create an account</Link>
+      </p>
+    </Container>
+  );
+};
 
 export default LoginForm;
