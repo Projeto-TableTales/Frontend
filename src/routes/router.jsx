@@ -18,8 +18,7 @@ export const AppRouter = () =>{
                 <Route path = "/home" element ={<Home/>} />
                 <Route path = "/" exact element ={<Apresentacao/>} />
                 <Route path = "/perfil" exact element ={<Perfil/>} />
-		<Route path = "/tela_esqueceu_senha" exact element ={<App/>} />
-		<Route path = "/tela_perfil_usuario" exact element ={<App_2/>} />
+		<Route path = "/perfil" exact element ={<Perfil_Usuario/>} />
             </Routes>
         </Router>
     )

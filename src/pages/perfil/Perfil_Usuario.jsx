@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"; // Importando as componentes BrowserRouter, Routes e Route
 // da biblioteca react-router-dom.
 
-function App_2(){
+function Perfil_Usuario(){
     return (
         <div>
 
@@ -52,4 +52,4 @@ function App_2(){
     )
 }
 
-export default App_2
+export default Perfil_Usuario
