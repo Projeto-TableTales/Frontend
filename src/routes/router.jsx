@@ -4,9 +4,7 @@ import Register from "../pages/register/register"
 import ForgotPassword from "../pages/forgotPassword/forgotPassword"
 import Home from "../pages/home/home"
 import Apresentacao from "../pages/apresentacao/apresentacao"
-import Perfil from "../pages/perfil/perfil"
-import App from "../pages/tela_esqueceu_senha/App"
-import App_2 from "../pages/tela_perfil_usuario/App_2"
+import Perfil from "../pages/perfil/Perfil_Usuario"
 
 export const AppRouter = () =>{
     return (
@@ -18,7 +16,6 @@ export const AppRouter = () =>{
                 <Route path = "/home" element ={<Home/>} />
                 <Route path = "/" exact element ={<Apresentacao/>} />
                 <Route path = "/perfil" exact element ={<Perfil/>} />
-		<Route path = "/perfil" exact element ={<Perfil_Usuario/>} />
             </Routes>
         </Router>
     )

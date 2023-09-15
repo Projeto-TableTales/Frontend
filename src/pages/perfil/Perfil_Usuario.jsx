@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // Importando as componentes BrowserRouter, Routes e Route
-// da biblioteca react-router-dom.
+
 
 function Perfil_Usuario(){
     return (
