@@ -12,9 +12,8 @@ import {
 } from "./styled";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import DropdownButton from "./../dropdown/dropdownButton"
-import AdapterDayjs from "@mui/lab/AdapterDayjs";
-import DatePicker from "@mui/lab/DatePicker";
+import DropdownButton from "./../dropdown/dropdownButton";
+import SelectCountry from "../selectCountry/selectCountry";
 
 const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -59,7 +58,6 @@ const RegisterForm = () => {
         setErrMsg("Ocorreu um erro ao fazer o registro. Tente novamente.");
       }
     }
-
   };
   return (
     <Container>
@@ -72,7 +70,7 @@ const RegisterForm = () => {
             value={nome}
             onChange={(e) => setNome(e.target.value)}
           />
-          <DropdownButton options={options} title="Gênero" />
+          <DropdownButton options={options} />
 
           {/* <Input
             type="text"
@@ -99,23 +97,17 @@ const RegisterForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <Line>
-          <Input
+          {/* <Input
             type="text"
             placeholder="Pais"
             onChange={(e) => setPais(e.target.value)}
-          />
+          /> */}
+          <SelectCountry></SelectCountry>
           {/* <Input
             type="text"
             placeholder="DataNascimento"
             onChange={(e) => setDataNascimento(e.target.value)}
           /> */}
-
-
-          <DatePicker
-            label="Controlled picker"
-            onChange={(e) => setDataNascimento(e.target.value)}
-          />
-
         </Line>
         {errMsg ? <ErrorMessage>{errMsg}</ErrorMessage> : null}
         <Button type="submit">REGISTER</Button>
