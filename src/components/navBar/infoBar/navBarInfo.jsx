@@ -11,9 +11,7 @@ const navBar = () => {
                     </Container>
               
                 <SubListHigh>
-                    <Link to="/info" exact>
-                    Sobre Nós
-                    </Link>
+                    
                     <Button>
                      <Link to="/Login" exact>
                         LOGIN
