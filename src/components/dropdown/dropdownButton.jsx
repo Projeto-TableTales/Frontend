@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Container, CustomSelect } from "./styled";
+import { CustomSelect } from "./styled";
 
-function DropdownButton({ options }) {
-  const [value, setSelectedOption] = useState("");
+function DropdownButton({ options, placehouder, setData }) {
 
   const handleSelect = (event) => {
-    setSelectedOption(event.target.value);
+    setData(event.target.value);
   };
 
   return (
     <CustomSelect className="form-select" onChange={handleSelect}>
+      <option disabled selected>{placehouder}</option>
       {options.map((option, index) => (
-        <option value={index}>{option} </option>
+        <option value={option} key={index}>{option}</option>
       ))}
     </CustomSelect>
   );

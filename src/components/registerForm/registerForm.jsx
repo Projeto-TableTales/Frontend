@@ -14,6 +14,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import DropdownButton from "./../dropdown/dropdownButton";
 import SelectCountry from "../selectCountry/selectCountry";
+import { useNavigate } from "react-router-dom/dist";
 
 const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -24,8 +25,10 @@ const RegisterForm = () => {
   const [pais, setPais] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [navigate, setNavigate] = useState(false);
+  // const [navigate, setNavigate] = useState(false);
   const options = ["Feminino", "Masculino", "Outros"];
+  const [dateType, setDateType] = useState("text");
+  const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
@@ -37,21 +40,13 @@ const RegisterForm = () => {
           pais,
           email,
           senha,
-          genero,
+          genero: genero.toUpperCase(),
           role,
           dataNascimento,
         }
       );
-      // Extrair o token da resposta
-      const token = response.data.token;
+      navigate("/login")
 
-      // Armazenar o token no localStorage
-      localStorage.setItem("token", token);
-      setNavigate(true);
-
-      if (navigate) {
-        return <Navigate to="/home" />;
-      }
     } catch (error) {
       console.error("Erro de registro:", error);
       if (error.response) {
@@ -70,24 +65,18 @@ const RegisterForm = () => {
             value={nome}
             onChange={(e) => setNome(e.target.value)}
           />
-          <DropdownButton options={options} />
+          <DropdownButton options={options} placehouder={"Gênero"} setData={setGenero}/>
 
-          {/* <Input
-            type="text"
-            placeholder="Genero"
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
-          /> */}
         </Line>
         <Line>
           <Input
-            type="senha"
+            type="password"
             placeholder="Senha"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
           <Input
-            type="senha"
+            type="password"
             placeholder="ConfirmSenha" /* onChange={e => setConfirmSenha(e.target.value)}*/
           />
         </Line>
@@ -102,12 +91,13 @@ const RegisterForm = () => {
             placeholder="Pais"
             onChange={(e) => setPais(e.target.value)}
           /> */}
-          <SelectCountry></SelectCountry>
-          {/* <Input
-            type="text"
-            placeholder="DataNascimento"
+          <SelectCountry setSelectedOption={setPais}></SelectCountry>
+          <Input
+            type={dateType}
+            placeholder="Data de Nascimento"
+            onFocus={(e) => setDateType("date")}
             onChange={(e) => setDataNascimento(e.target.value)}
-          /> */}
+          />
         </Line>
         {errMsg ? <ErrorMessage>{errMsg}</ErrorMessage> : null}
         <Button type="submit">REGISTER</Button>

@@ -25,7 +25,13 @@ export const Button = styled.button`
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
 `;
-
+export const ButtonNav = styled.button`
+   outline: none;
+   border: none;
+   background-color: transparent;
+   color: #D2C5C5 !important;
+    cursor: pointer;
+`;
 export const List = styled.ul`
     display:flex;
     list-style: none;

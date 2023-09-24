@@ -1,7 +1,7 @@
 import Select from "react-select";
 import React, { useState } from 'react';
 
-const SelectCountry = () => {
+const SelectCountry = ({setSelectedOption }) => {
   const options = [
     { value: "AFG", label: "Afeganistão" },
     { value: "ZAF", label: "África do Sul" },
@@ -251,25 +251,30 @@ const SelectCountry = () => {
     { value: "ZWE", label: "Zimbábue" },
   ];
 
-  const [selectedOption, setSelectedOption] = useState(null);
-
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
       border: "1px solid #ccc",
       borderRadius: "4px",
       boxShadow: state.isFocused ? "0 0 0 1px #007BFF" : null,
+      width:"270px"
     }),
     // Adicione outros estilos conforme necessário
   };
-
+  const [localValue, setLocalValue] = useState(null);
+  const handleSelect = (e) =>{
+    setLocalValue(e);
+    setSelectedOption(e.value);
+ 
+}
   return (
     <Select
-      value={selectedOption}
-      onChange={setSelectedOption}
+      value={localValue}
+      onChange={handleSelect}
       options={options}
       isSearchable={true}
       styles={customStyles}
+      placeholder={"Pais"}
     />
   );
 };

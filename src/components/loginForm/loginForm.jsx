@@ -7,7 +7,7 @@ import {
   Title,
   ErrorMessage,
 } from "./styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,11 @@ const LoginForm = () => {
   const [senha, setSenha] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token")
+    token && navigate('/home')
+  }, [])
 
   const submit = async (e) => {
     e.preventDefault();
@@ -30,8 +35,6 @@ const LoginForm = () => {
 
       // Armazenar o token no localStorage
       localStorage.setItem("token", token);
-
-      console.log(111);
       navigate("/home");
     } catch (error) {
       console.error("Erro de login:", error);

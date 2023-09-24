@@ -1,7 +1,10 @@
 import {Bar, Img,Link,Container,Button,SubListHigh, List, ImgText} from "./styled";
 import Logo_Home from "../../../assets/Logo_Home.png"
 import Logo_Text from "../../../assets/tabletale_tema.png"
-const navBar = () => {
+import { useNavigate } from "react-router-dom/dist";
+
+const NavBar = () => {
+    const navigate = useNavigate();
     return (
         <Bar>
             <List>
@@ -14,10 +17,8 @@ const navBar = () => {
                     <Link to="/Sobre" exact>
                     Sobre Nós
                     </Link>
-                    <Button>
-                     <Link to="/Login" exact>
+                    <Button onClick = {() => navigate("/login")}>
                         LOGIN
-                     </Link>
                     </Button>
                 </SubListHigh>
             </List>
@@ -25,4 +26,4 @@ const navBar = () => {
         </Bar>
     );
 }
-export default navBar;
+export default NavBar;
