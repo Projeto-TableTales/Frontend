@@ -2,7 +2,7 @@ import RegisterForm from "../../components/registerForm/registerForm";
 import SideLogo from "../../components/sideLogo/sideLogo";
 import{ Container}  from "./styled";
 
-const Login = () => {
+const Register = () => {
     return(
         <Container>
            <SideLogo />
@@ -11,4 +11,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;

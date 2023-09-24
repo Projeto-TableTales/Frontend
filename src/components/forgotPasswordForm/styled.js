@@ -10,12 +10,13 @@ export const Container = styled.div`
     background-color: #D9D9D9;
 `;
 export const Title = styled.h1`
-    color: #D2C5C5;
-    background-color: #643A6F;
-    width: 300px;
-    border-radius: 11.6px;
-    text-align:center;
-    align-items:center;
+  color: #d2c5c5;
+  background-color: #643a6f;
+  width: 254px;
+  border-radius: 24px;
+  text-align: center;
+  font-size: 24px;
+  padding: 14px;
 `;
 export const Form = styled.form`
     display:flex;
@@ -37,19 +38,22 @@ export const Input = styled.input`
     
 `;
 
+
 export const Button = styled.button`
-    color: #D2C5C5;
-    background-color: #643A6F;
-    width: 141px;
-    padding: 5px;
-    font-size: 17px;
-    font-weight: bold;
-    border-radius: 11.6px;
-    cursor: pointer;
-    border: none;
+  border-radius: 20px;
+  border: 1px solid #643a6f;
+  background-color: #643a6f;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  &:active {
+    transform: scale(0.95);
+  }
+  &:focus {
     outline: none;
-    &:hover{
-        background-color: #2C0445;
-        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    }
+  }
 `;

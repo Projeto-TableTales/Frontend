@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   Button,
@@ -12,6 +13,7 @@ import {
 } from "./styled";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+
 
 const RegisterForm = () => {
   const [nome, setNome] = useState("");
