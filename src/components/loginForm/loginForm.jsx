@@ -20,7 +20,7 @@ const LoginForm = () => {
   useEffect(() => {
     const token = window.localStorage.getItem("token")
     token && navigate('/home')
-  }, [])
+  }, [navigate])
 
   const submit = async (e) => {
     e.preventDefault();

@@ -25,23 +25,16 @@ export const Button = styled.button`
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
 `;
-
 export const List = styled.ul`
     display:flex;
     list-style: none;
     align-items: center;
     justify-content:flex-end;
 `;
-export const SubList = styled.li`
-    margin-left: auto;
-    padding-left:100px;
-`;
-
 export const SubListHigh = styled.li`
     margin-left: auto;
     flex-direction: column;
     padding-left:600px;
-   
 `;
 export const Link = styled(RouterLink)`
     color: #D2C5C5 !important;
@@ -51,7 +44,6 @@ export const Link = styled(RouterLink)`
         background-color: #2C0445;
     }
 `;
-
 export const Img = styled.img`
   width: 30%;
   align-items: center;
@@ -70,18 +62,11 @@ export const Container = styled.div`
     align-items: center;
 `;
 
-
 export const ImgHome = styled.img`
   width: 25%;
   align-items: center;
   justify-content:center;
 `;
-export const ContainerHome = styled.div`
-    height: 15vh;
-    width: 550px;
-    display: flex;
-    align-items: center;
-    
-`;
+
 
 

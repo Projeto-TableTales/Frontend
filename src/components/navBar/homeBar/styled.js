@@ -5,18 +5,22 @@ export const Bar = styled.nav`
     display:flex;
     background-color: #2C0445;
     align-items: center;
+    justify-content:space-between;
     flex-direction: row;
+    height: 15vh;
     padding: 0.8em;  
 `;
-export const Button = styled.button`
+export const Span = styled.span`
     color: #D2C5C5;
     background-color: #643A6F;
-    width: 141px;
     padding: 10px;
     margin-left: 50px;
-    font-size: 17px;
-    font-weight: bold;
-    border-radius: 11.6px;
+    font-size: 20px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     cursor: pointer;
     border: none;
     outline: none;
@@ -25,30 +29,7 @@ export const Button = styled.button`
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     }
 `;
-export const ButtonNav = styled.button`
-   outline: none;
-   border: none;
-   background-color: transparent;
-   color: #D2C5C5 !important;
-    cursor: pointer;
-`;
-export const List = styled.ul`
-    display:flex;
-    list-style: none;
-    align-items: center;
-    justify-content:flex-end;
-`;
-export const SubList = styled.li`
-    margin-left: auto;
-    padding-left:100px;
-`;
 
-export const SubListHigh = styled.li`
-    margin-left: auto;
-    flex-direction: column;
-    padding-left:600px;
-   
-`;
 export const Link = styled(RouterLink)`
     color: #D2C5C5 !important;
     align-self: flex-end;
@@ -57,37 +38,26 @@ export const Link = styled(RouterLink)`
         background-color: #2C0445;
     }
 `;
-
 export const Img = styled.img`
-  width: 30%;
+  height: 100%;
   align-items: center;
   justify-content:center;
 `;
-export const ImgText = styled.img`
-  width: 50%;
-  padding-left:40px;
-  align-items: center;
-  justify-content:center;
-`;
+
 export const Container = styled.div`
     height: 15vh;
     width: 550px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 `;
-
-
-export const ImgHome = styled.img`
-  width: 25%;
-  align-items: center;
-  justify-content:center;
-`;
-export const ContainerHome = styled.div`
-    height: 15vh;
-    width: 550px;
+export const Quadro = styled.div`
+    height: 35px;
+    width: 340px;
     display: flex;
     align-items: center;
-    
 `;
+
+
 
 

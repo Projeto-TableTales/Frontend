@@ -1,31 +1,35 @@
-import {Bar, Img,List,Link,Container, SubListHigh,} from "../apresentBar/styled";
+import {Bar, Img,Link,Span} from "../homeBar/styled.js"
 import Icon from "../../../assets/user_Icon.png"
 import Logo_Home from "../../../assets/logo_2.png"
+import { IoLogOutOutline } from 'react-icons/io5'
+import {BsFillPersonFill} from 'react-icons/bs'
 import { useNavigate } from "react-router-dom/dist";
-import { ButtonNav } from "./styled";
+import { useProtectedPage } from "../../../hooks/useProtected.js"
 
 const NavBar = () => {
-
+const navigate = useNavigate();
     const handleClick = () => {
         window.localStorage.clear();
+        navigate("/");
     }
     return (
-         <Bar>
-             <List>
-                <Container>
-                    <Img src={Logo_Home} alt="TableTales" />
-                </Container> 
-                <SubListHigh>
-                    <Link to="/Home" > Home</Link>
-                    <Link to="/forum" exact>Forum</Link>
-                    <Link to="/perfil">
-                        <img src={Icon} alt="User" />
-                    </Link>
-                    <Link to="/"><ButtonNav onClick={() => handleClick()}>Sair</ButtonNav></Link>
-                </SubListHigh>
-            </List>
-         </Bar>
-
+        <Bar>
+            <Img src={Logo_Home} alt="TableTales" />
+            <ul>
+                <li>
+                    <Link to="/forum">Forum</Link> 
+                </li>
+                <li>
+                    <BsFillPersonFill/> 
+                </li>
+                <li>
+                    <Span onClick={()=>handleClick()}> log out<IoLogOutOutline /> </Span>
+                </li>
+            </ul>
+                
+         
+           
+      </Bar>
     )
 }
 export default NavBar;

@@ -11,29 +11,20 @@ import Home from "../pages/home/home";
 import Apresentacao from "../pages/apresentacao/apresentacao";
 import Perfil from "../pages/perfil/Perfil_Usuario";
 import Info from "../pages/info/info";
+import CodePassword from "../pages/codePassword/codePassword";
 
 export const AppRouter = () => {
   return (
     <Router>
       <Routes>
+        <Route index element={<Apresentacao />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
-        <Route
-          path="/home"
-          element={
-            localStorage.getItem("token") ? <Home /> : <Navigate to="/login" />
-          }
-        />
-        <Route path="/" exact element={<Apresentacao />} />
-        <Route
-          path="/perfil"
-          element={
-            localStorage.getItem("token") ? <Home /> : <Navigate to="/login" />
-          }
-        />
-        <Route path="/perfil" exact element={<Perfil />} />
+        <Route path="/home" element={ <Home />} />
+        <Route path="/perfil" element={<Perfil />} />
         <Route path="/info" element={<Info />} />
+        <Route path="/codeRecovery" element={<CodePassword/>} />
       </Routes>
     </Router>
   );

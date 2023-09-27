@@ -14,7 +14,7 @@ const NavBar = () => {
                     </Container>
               
                 <SubListHigh>
-                    <Link to="/info" exact>
+                    <Link to="/info">
                     Sobre Nós
                     </Link>
                     <Button onClick = {() => navigate("/login")}>
