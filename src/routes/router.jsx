@@ -9,7 +9,7 @@ import Register from "../pages/register/register";
 import ForgotPassword from "../pages/forgotPassword/forgotPassword";
 import Home from "../pages/home/home";
 import Apresentacao from "../pages/apresentacao/apresentacao";
-import Perfil from "../pages/perfil/Perfil_Usuario";
+import Perfil_Usuario from "../pages/perfil/Perfil_Usuario";
 import Info from "../pages/info/info";
 
 export const AppRouter = () => {
@@ -31,8 +31,8 @@ export const AppRouter = () => {
           element={
             localStorage.getItem("token") ? <Home /> : <Navigate to="/login" />
           }
-        />
-        <Route path="/perfil" exact element={<Perfil />} />
+        /> 
+        <Route path="/perfil" element={<Perfil_Usuario />} />
         <Route path="/info" element={<Info />} />
       </Routes>
     </Router>
