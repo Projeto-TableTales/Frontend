@@ -2,17 +2,16 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 import Login from "../pages/login/login";
 import Register from "../pages/register/register";
 import ForgotPassword from "../pages/forgotPassword/forgotPassword";
 import Home from "../pages/home/home";
 import Apresentacao from "../pages/apresentacao/apresentacao";
-import Perfil from "../pages/perfil/Perfil_Usuario";
+import Perfil from "../pages/perfil/perfil";
 import Info from "../pages/info/info";
 import CodePassword from "../pages/codePassword/codePassword";
-
+import Publicacoes from "../components/publicationsTab/publicationsTab";
 export const AppRouter = () => {
   return (
     <Router>
@@ -25,7 +24,14 @@ export const AppRouter = () => {
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/info" element={<Info />} />
         <Route path="/codeRecovery" element={<CodePassword/>} />
-      </Routes>
+        <Route path="/perfil/publicacoes" component={<Publicacoes/>} />
+          {/*
+           <Route path="/perfil/sobre-voce" component={SobreVoce} />
+          <Route path="/perfil/personagens" component={Personagens} />
+          <Route path="/perfil/campanhas" component={Campanhas} />
+          <Route path="/perfil/amigos" component={Amigos} /> */}
+
+      </Routes> 
     </Router>
   );
 };

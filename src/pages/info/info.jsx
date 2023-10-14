@@ -4,7 +4,7 @@ import {
   Box,
   Description,
   Column,
-  ImagePersonalizy,
+ 
   ImageRow,
 } from "./styled";
 import bruxo from "./../../assets/bruxo.png";
