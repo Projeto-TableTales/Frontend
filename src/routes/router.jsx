@@ -12,6 +12,7 @@ import Perfil from "../pages/perfil/perfil";
 import Info from "../pages/info/info";
 import CodePassword from "../pages/codePassword/codePassword";
 import Publicacoes from "../components/publicationsTab/publicationsTab";
+import Character from "../pages/characters/character"
 export const AppRouter = () => {
   return (
     <Router>
@@ -25,6 +26,7 @@ export const AppRouter = () => {
         <Route path="/info" element={<Info />} />
         <Route path="/codeRecovery" element={<CodePassword/>} />
         <Route path="/perfil/publicacoes" component={<Publicacoes/>} />
+        <Route path="/perfil/character" element={<Character />} />
           {/*
            <Route path="/perfil/sobre-voce" component={SobreVoce} />
           <Route path="/perfil/personagens" component={Personagens} />
