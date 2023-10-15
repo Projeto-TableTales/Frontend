@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 
 export const NavbarContainer = styled.div`
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  background-color: #2C0445;
+  background-color: #2c0445;
   align-items: center;
   flex-direction: row;
   height: 15vh;
-  z-index: 100; 
+  z-index: 100;
 `;
 // export const Span = styled.span`
 //     color: #D2C5C5;
@@ -33,46 +33,47 @@ export const NavbarContainer = styled.div`
 //     }
 // `;
 export const Logo = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    height: 100%; 
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 90%;
 `;
 export const Img = styled.img`
-    max-height: 100%;
-    width: auto; 
-    margin-right: 20px;
+  max-height: 100%;
+  width: auto;
+  margin-right: 20px;
 `;
 
 export const Search = styled.div`
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-right: 60vh; 
-    margin-right: 60vh;  
-    width: 500px; 
-
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 60vh;
+  margin-right: 60vh;
+  width: 500px;
 `;
 export const Bar = styled.input`
-    width: 100%;
-    padding: 5px;
-    background-color: #7D40A4;
-    border: none;
-    border-radius: 5px;
+  width: 100%;
+  padding: 5px;
+  background-color: #7d40a4;
+  border: none;
+  border-radius: 5px;
 `;
 export const Icons = styled.a`
-    display:flex;
-    align-items: center;
-    flex-direction: row;
-    height: 15vh; 
-    margin-right: 5vh;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 15vh;
+  margin-right: 5vh;
 `;
 
 export const Frame = styled.div`
   display: flex;
   align-items: center;
   margin-right: 2vh;
-  span{
+  span {
     color: black;
     border: 2px solid black;
     border-radius: 50%;
@@ -80,10 +81,10 @@ export const Frame = styled.div`
     align-items: center;
     justify-content: center;
     width: 6vh;
-    height:6vh;
+    height: 6vh;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s;
     svg {
-      font-size: 26px; 
+      font-size: 26px;
     }
     &:hover {
       color: pink;
@@ -99,10 +100,10 @@ export const Frame = styled.div`
     align-items: center;
     justify-content: center;
     width: 6vh;
-    height:6vh;
+    height: 6vh;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s;
     svg {
-      font-size: 28px; 
+      font-size: 28px;
     }
     &:hover {
       color: pink;
@@ -116,9 +117,9 @@ export const Span = styled.span`
   text-decoration: none;
 `;
 export const Icon = styled.div`
-  position: absolute; 
-  right: 10px; 
+  position: absolute;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1; 
+  z-index: 1;
 `;
