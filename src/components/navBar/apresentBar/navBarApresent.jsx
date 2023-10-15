@@ -1,4 +1,4 @@
-import {Bar, Img,Link,Container,Button,SubListHigh, List, ImgText} from "./styled";
+import {Bar, Img,Link,Container,Button,SubListHigh, List, ImgText} from "./styled"
 import Logo_Home from "../../../assets/Logo_Home.png"
 import Logo_Text from "../../../assets/tabletale_tema.png"
 import { useNavigate } from "react-router-dom/dist";
