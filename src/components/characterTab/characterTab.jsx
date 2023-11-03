@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Container,
   ImageRow,
@@ -8,20 +10,22 @@ import {
   Icon,
   Title,
   GridContainer,
+  // Nova importação
 } from "./styled";
 import bruxo from "./../../assets/bruxo.png";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { RiAddLine } from "react-icons/ri";
 import ModalCreateCharacter from "../modal/modalCreateCharacter/modalCreateCharacter";
-import axios from "axios";
 
 const CharacterTab = () => {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
   const [characterData, setCharacterData] = useState([]);
-  const handleContainerClick = () => {
-    navigate("/perfil/character");
+  const [error, setError] = useState(null);
+
+  const handleContainerClick = (characterId) => {
+    // Navegar para a página do perfil do personagem com base no ID do personagem
+    navigate(`/perfil/character/${characterId}`);
   };
 
   useEffect(() => {
@@ -35,9 +39,15 @@ const CharacterTab = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      axios.get("http://localhost:8080/personagem", config).then((response) => {
-        setCharacterData(response.data); // Supondo que os dados estejam em um array
-      });
+
+      axios
+        .get("http://localhost:8080/personagem", config)
+        .then((response) => {
+          setCharacterData(response.data); // Supondo que os dados estejam em um array
+        })
+        .catch((err) => {
+          setError(err); // Captura o erro
+        });
     }
   }, []);
 
@@ -55,32 +65,37 @@ const CharacterTab = () => {
         setModalOpen={() => setOpenModal(!openModal)}
       />
 
-      <GridContainer>
-        {characterData.map((character, index) => (
-          <button
-            onClick={handleContainerClick}
-            style={{
-              backgroundColor: "transparent",
-              border: "none",
-              padding: 0,
-              cursor: "pointer",
-            }}
-          >
-            <BoxPersonagem>
-              <ImageRow>
-                <ImageContainer>
-                  <Imagem src={bruxo} alt="Bruxo" />
-                </ImageContainer>
-                <TextInfo>
-                  <p>Nome: {character.nome}</p>
-                  <p>Status: {character.status}</p>
-                  <p>Sistema: {character.sistemaDoRPG}</p>
-                </TextInfo>
-              </ImageRow>
-            </BoxPersonagem>
-          </button>
-        ))}
-      </GridContainer>
+      {error ? (
+        <h2>Ocorreu um erro ao carregar os personagens, tente novamente...</h2>
+      ) : (
+        <GridContainer>
+          {characterData.map((character, index) => (
+            <button
+              onClick={() => handleContainerClick(character.id)}
+              style={{
+                backgroundColor: "transparent",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+              }}
+              key={character.id}
+            >
+              <BoxPersonagem>
+                <ImageRow>
+                  <ImageContainer>
+                    <Imagem src={bruxo} alt="Bruxo" />
+                  </ImageContainer>
+                  <TextInfo>
+                    <p>Nome: {character.nome}</p>
+                    <p>Status: {character.status}</p>
+                    <p>Sistema: {character.sistemaDoRPG}</p>
+                  </TextInfo>
+                </ImageRow>
+              </BoxPersonagem>
+            </button>
+          ))}
+        </GridContainer>
+      )}
     </Container>
   );
 };
