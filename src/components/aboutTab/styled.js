@@ -41,9 +41,9 @@ export const InputDescription = styled.input`
 `;
 export const Titulo = styled.p`
   color:white;
-
   margin-block:0;
   margin-left:2%;
+  font-size: 14px;
 `;
 
 // PAÍS
@@ -59,11 +59,10 @@ export const Country = styled.div`
   flex-direction:row;
 `;
 
-
 export const Input = styled.input`
   width: 93%;
   height:60%;
-  border:none; 
+  border:none;  
   margin-left:1%;
   background-color:#1E1429;
   display: flex;
@@ -74,11 +73,31 @@ export const Input = styled.input`
 
 export const Preferencias = styled.div`
   width: 100%;
-  height:10%;
+  height:14%;
   margin-top:1.5%;
   background-color:#1E1429;
   display: flex;
   justify-content: center; 
-  align-items:left;
+  align-items:center;
   flex-direction:column;
+`;
+export const Boxx = styled.div`
+  width: 96%;
+  height:15%;
+  margin-top:0.8%;
+  background-color:#3C2754;
+  display: flex;
+  justify-content: left; 
+  align-items:center;
+  flex-direction:row;
+`;
+export const Input2 = styled.input`
+  width: 93%;
+  height:60%;
+  border:none;  
+  margin-left:1%;
+  background-color:#3C2754;
+  display: flex;
+  justify-content: center; 
+  align-items:center;
 `;

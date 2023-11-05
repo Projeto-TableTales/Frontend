@@ -2,7 +2,6 @@ import {ScreenBackground,
         ModalFrame,
         Button,
         Titulo,
-        Frame,
         UserName,
         TituloPubli,
         Comentario,
@@ -18,7 +17,39 @@ import {BsImages} from 'react-icons/bs';
 import {BiSolidVideos} from 'react-icons/bi';
 import {AiOutlineFileGif} from 'react-icons/ai';
 import UserPerfil from "../../../assets/UserPerfil.jpg";
+import { useState } from "react";
 const ModalCriarPubli = ({isOpen, setModalOpen}) => {
+    
+    // const [publicacao, setPublicacao] = useState({
+    //     userName: 'UserName',
+    //     titulo: '',
+    //     comentario: '',
+    //     tipoArquivo: 'Imagem', // Padrão para imagem
+    //   });
+    
+    //   const criarPublicacao = () => {
+    //     console.log('Criando publicação:', publicacao);
+    //     setPublicacao({
+    //       userName: 'UserName',
+    //       titulo: '',
+    //       comentario: '',
+    //       tipoArquivo: 'Imagem',
+    //     });
+    //     // Feche o modal
+    //     setModalOpen(false);
+    //   };
+    
+    const [titulo, setTitulo] = useState('');
+    const [comentario, setComentario] = useState('');
+    // const [tipoArquivo, setTipoArquivo] = useState('Imagem'); // Padrão para imagem
+
+    const handleTituloChange = (e) => {
+        setTitulo(e.target.value);
+    };
+
+    const handleComentarioChange = (e) => {
+        setComentario(e.target.value);
+    };
 
     if(isOpen){
         return (
@@ -34,8 +65,20 @@ const ModalCriarPubli = ({isOpen, setModalOpen}) => {
                     </User>
 
                     <Editaveis>
-                        <TituloPubli type="text" name="Titulo da Publicação" id="Titulo da Publicação" />
-                        <Comentario type="text" name="Comentário" id="Comentário" />
+                        <TituloPubli
+                            type="text"
+                            name="Titulo da Publicação"
+                            id="Titulo da Publicação"
+                            value={titulo}
+                            onChange={handleTituloChange}
+                        />
+                        <Comentario
+                            type="text"
+                            name="Comentário"
+                            id="Comentário"
+                            value={comentario}
+                            onChange={handleComentarioChange}
+                        />
                     </Editaveis>
 
                     <SelecionarArquivo>

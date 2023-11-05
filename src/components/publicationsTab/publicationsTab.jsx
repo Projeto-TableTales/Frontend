@@ -9,14 +9,14 @@ const PublicationsTab = () => {
     
     const GlobalStyle = createGlobalStyle`
     body {
-      overflow: ${({ modalOpen }) => (modalOpen ? 'hidden' : 'auto')}; // Trava a rolagem quando o modal estiver aberto
+      overflow: ${({ modalOpen }) => (modalOpen ? 'hidden' : 'auto')};
     }
   `;
     return (
         <Container>
             <Frame>
                 <Img src={UserPerfil} alt="imagemPerfil" />
-                <Input type="text" />
+                <Input type="text" readOnly/>
                 <Icon onClick={()=> setOpenModal(true)}>
                     <RiShieldCrossFill/>
                 </Icon>

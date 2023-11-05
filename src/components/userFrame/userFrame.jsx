@@ -3,23 +3,50 @@ import React, { useEffect, useState } from 'react';
 // import cover from '../../assets/UserCover.jpg';
 import user from '../../assets/UserPerfil.jpg';
 import axios from 'axios';
+import api from "../../api/api";
 
-const UserFrame = ({ coverImage, onEditCoverClick }) => {
-  const [userName, setUserName] = useState('Larissa b');
+const UserFrame = ({ coverImage, onEditCoverClick, id }) => {
+  
+  const [username, setUsername] = useState("");
+
 
   useEffect(() => {
-    axios.get('/perfil/name/{id}') // Use uma rota válida
-      .then((response) => {
-        setUserName(response.data);
-      })
-      .catch((error) => {
-        console.error('Erro ao obter o nome do usuário:', error);
-      });
+    getUserInfo();
   }, []);
+
+  const getUserInfo = () => {
+    const header = {
+
+    }
+
+    api.get(`/perfil/name/${id}`)
+    .then( response => {
+      const nome = response.data.nome;
+      console.log(nome);
+      setUsername(nome);
+    })
+    .catch((error) => {
+      console.error('Erro ao obter os dados do usuário:', error);
+    });
+  }
   const [isEditing, setIsEditing] = useState(false);
+
   const handleImageChange = (event) => {
     const newCoverImage = URL.createObjectURL(event.target.files[0]);
     onEditCoverClick(newCoverImage);
+    localStorage.setItem('coverImage', newCoverImage);
+    // Enviar a imagem para o servidor
+    const formData = new FormData();
+    formData.append('file', event.target.files[0]);
+  
+    axios.post('/imagens/inserir', formData)
+      .then((response) => {
+        // Tratar a resposta do servidor, se necessário
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar a imagem:', error);
+      });
+  
     setIsEditing(false);
   };
 
@@ -35,7 +62,7 @@ const UserFrame = ({ coverImage, onEditCoverClick }) => {
             </EditButton>
             <input type="file" accept="image/*" onChange={handleImageChange} style={{ display: 'none' }} />
           </ImagemCoverContainer>
-          <UserName>{userName}</UserName>
+          <UserName>{username}</UserName>
         </>
       ) : (
         <> 

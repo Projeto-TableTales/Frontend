@@ -32,9 +32,12 @@ const LoginForm = () => {
       });
       // Extrair o token da resposta
       const token = response.data.token;
+      const id = response.data.id
 
       // Armazenar o token no localStorage
       localStorage.setItem("token", token);
+      localStorage.setItem("id", id);
+
       navigate("/home");
     } catch (error) {
       console.error("Erro de login:", error);

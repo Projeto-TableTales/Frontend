@@ -5,7 +5,9 @@ import {Container,
         Titulo,
         Country,
         Input,
-        Preferencias} from "./styled";
+        Preferencias,
+        Boxx,
+        Input2} from "./styled";
 
 const AboutTab = () => {
   
@@ -22,18 +24,22 @@ const AboutTab = () => {
                 </Country>
                 <Preferencias>
                     <Titulo>PREFERENCIAS</Titulo>
-                    <div> 
+                    <Boxx> 
                         <Titulo>NARRATIVAS</Titulo>
-                        <Input type="text" /></div>
-                    <div> 
-                        <Titulo>NARRATIVAS</Titulo>
-                        <Input type="text" /></div>
-                    <div> 
-                        <Titulo>NARRATIVAS</Titulo>
-                        <Input type="text" /></div>
-                    <div> 
-                        <Titulo>NARRATIVAS</Titulo>
-                        <Input type="text" /></div>
+                        <Input2 type="text" />
+                    </Boxx>
+                    <Boxx> 
+                        <Titulo>EXPERIENCIA</Titulo>
+                        <Input2 type="text" />
+                    </Boxx>
+                    <Boxx> 
+                        <Titulo>TIPO DE JOGADOR</Titulo>
+                        <Input2 type="text" />
+                    </Boxx>
+                    <Boxx> 
+                        <Titulo>CARGO</Titulo>
+                        <Input2 type="text" />
+                    </Boxx>
                 </Preferencias>
                 <div>
                     <input type="text" />
