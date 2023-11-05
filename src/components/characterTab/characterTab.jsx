@@ -66,7 +66,7 @@ const CharacterTab = () => {
       />
 
       {error ? (
-        <h2>Ocorreu um erro ao carregar os personagens, tente novamente...</h2>
+        <h2>Ocorreu um erro, tente novamente...</h2>
       ) : (
         <GridContainer>
           {characterData.map((character, index) => (
