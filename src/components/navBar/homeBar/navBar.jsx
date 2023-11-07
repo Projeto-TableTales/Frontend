@@ -1,31 +1,39 @@
-import {Bar, Img,List,Link,Container, SubListHigh,} from "../apresentBar/styled";
-import Icon from "../../../assets/user_Icon.png"
+import {Logo,NavbarContainer, Icons, Search,Img,Bar,Span,Frame,Icon} from "../homeBar/styled"
 import Logo_Home from "../../../assets/logo_2.png"
-import { useNavigate } from "react-router-dom/dist";
-import { ButtonNav } from "./styled";
+import { IoLogOutOutline } from 'react-icons/io5'
+import {HiMiniHome} from 'react-icons/hi2'
+import {GiSwordsEmblem} from 'react-icons/gi'
+import {MdForum} from 'react-icons/md'
+import {IoMdNotifications} from 'react-icons/io'
+import {FaUserAlt} from 'react-icons/fa'
+import {BiSearchAlt2} from 'react-icons/bi'
+import { Link, useNavigate } from "react-router-dom/dist";
+import { useState } from "react"
+import ModalPerfilMenu from "../../modal/modalPerfilMenu/modalPerfilMenu";
+
 
 const NavBar = () => {
 
-    const handleClick = () => {
-        window.localStorage.clear();
-    }
+    const[openModal,setOpenModal]= useState(false)
+    
     return (
-         <Bar>
-             <List>
-                <Container>
-                    <Img src={Logo_Home} alt="TableTales" />
-                </Container> 
-                <SubListHigh>
-                    <Link to="/Home" > Home</Link>
-                    <Link to="/forum" exact>Forum</Link>
-                    <Link to="/perfil">
-                        <img src={Icon} alt="User" />
-                    </Link>
-                    <Link to="/"><ButtonNav onClick={() => handleClick()}>Sair</ButtonNav></Link>
-                </SubListHigh>
-            </List>
-         </Bar>
-
+    <NavbarContainer>
+    <Logo>
+        <Img src={Logo_Home} alt="TableTales" />
+    </Logo>
+    <Search>
+        <Bar type="text" placeholder="Pesquisar..." /> 
+        <Icon><BiSearchAlt2/></Icon>
+    </Search>   
+    <Icons>
+        <Frame><Link to="/home"><HiMiniHome/></Link></Frame>
+        <Frame><Link to="/campanhas"><GiSwordsEmblem/></Link></Frame>
+        <Frame><Link to="/forum"><MdForum/></Link></Frame>
+        <Frame><Link to="/notificação"><IoMdNotifications/></Link></Frame>
+        <Frame onClick={() => setOpenModal(true)}><Span><FaUserAlt/></Span></Frame>
+    </Icons>
+    <ModalPerfilMenu isOpen={openModal} setModalOpen = {()=> setOpenModal(!openModal)}/>
+  </NavbarContainer>
     )
 }
 export default NavBar;

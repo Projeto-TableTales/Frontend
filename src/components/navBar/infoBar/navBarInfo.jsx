@@ -13,7 +13,7 @@ const navBar = () => {
                 <SubListHigh>
                     
                     <Button>
-                     <Link to="/Login" exact>
+                     <Link to="/Login">
                         LOGIN
                      </Link>
                     </Button>

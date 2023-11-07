@@ -14,9 +14,7 @@ code {
 
 
 
-body{
-  background: rgb(63, 1, 55); /* Cor do Plano de Fundo do body. */
-}
+
 
 #primeiro_h1{ /* id do elemento h1, que se chama primeiro_h1 */
   color: white; /* Cor para o Texto. */
