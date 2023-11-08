@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import UserFrame from "../../components/userFrame/userFrame";
-import NavBar from "../../components/navBar/homeBar/navBar";
+import UserFrame from "../userFrame/userFrame";
+import NavBar from "../navBar/homeBar/navBar";
 import { Container} from './styled';
 import cover from '../../assets/UserCover.jpg';
-import NavBarPerfil from "../../components/navBar/navBarPerfil/navBarPerfil"
+import NavBarPerfil from "../navBar/navBarPerfil/navBarPerfil"
 import { useProtectedPage } from '../../hooks/useProtected';
 
 const Perfil = () => {

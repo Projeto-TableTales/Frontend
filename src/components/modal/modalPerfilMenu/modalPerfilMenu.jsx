@@ -1,9 +1,32 @@
 
 import { Link,useNavigate } from "react-router-dom";
 import {ScreenBackground,ModalFrame,Button,Divider} from "./styled";
+import api from "../../../api/api";
+import { useState } from "react";
+import { useEffect } from "react";
 const ModalPerfilMenu = ({isOpen,setModalOpen}) => {
     
     const navigate = useNavigate();
+    const [usuario, setUsuario] = useState("");
+  
+  
+    useEffect(() => {
+      getUserInfo();
+    }, []);
+  
+    const getUserInfo = () => {
+      api.get(`/perfil`)
+      .then( response => {
+        const usuario = response.data;
+        setUsuario(usuario);
+      })
+      .catch((error) => {
+        setUsuario("Deu Ruim");
+        console.error('Erro ao obter os dados do usuário:', error.data);
+      });
+    }
+  
+
     const handleClick = () => {
         window.localStorage.clear();
         navigate("/");
@@ -14,7 +37,7 @@ const ModalPerfilMenu = ({isOpen,setModalOpen}) => {
             <ScreenBackground onClick={setModalOpen}>
                 <ModalFrame>
                     <Link to="/perfil"> 
-                        <Button>UserName</Button>
+                        <Button>{usuario.nome}</Button>
                     </Link> 
                     <Divider className="LinhaDivisoria"></Divider>
                     <Button>Editar Perfil</Button>

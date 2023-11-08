@@ -45,10 +45,11 @@ export const ProfileImage = styled.img`
 `;
 
 export const UserName = styled.span`
-  font-size: 23px;
+  font-size: 30px;
   font-weight: bold;
+  text-transform: capitalize;
   color:white;
   position: absolute;
-  top: 76%; 
-  left: 32%; 
+  top: 78%; 
+  left: 30%; 
 `;

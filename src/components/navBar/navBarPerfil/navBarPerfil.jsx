@@ -4,22 +4,24 @@ import PublicationsTab from "../../publicationsTab/publicationsTab";
 import AboutTab from "../../aboutTab/aboutTab";
 import CharacterTab from "../../characterTab/characterTab";
 import CampaignTab from "../../campaignTab/campaignTab";
+import { useNavigate } from "react-router-dom";
 
 const NavBarPerfil = () => {
-  const [activeTab, setActiveTab] = useState("Tab 1");
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('publicacoes')
   function handleChangeTab(tabName) {
-    setActiveTab(tabName);
+    setActiveTab(tabName)
   }
-  function renderTabContent() {
-    switch (activeTab) {
-      case "Tab 1":
-        return <PublicationsTab fase="Publicações" />;
-      case "Tab 2":
-        return <AboutTab fase="Sobre Você" />;
-      case "Tab 3":
-        return <CharacterTab fase="Personagens" />;
-      case "Tab 4":
-        return <CampaignTab fase="Campanhas" />;
+  function renderTabContent(){
+    switch(activeTab){
+      case 'publicacoes':
+        return <PublicationsTab fase = 'Publicações'/>
+      case 'sobre-voce':
+         return <AboutTab  fase = 'Sobre Você'/> 
+       case 'personagens':
+         return <CharacterTab fase = 'Personagens'/>
+       case 'campanhas':
+         return <CampaignTab fase = 'Campanhas'/>
     }
   }
 
@@ -27,43 +29,41 @@ const NavBarPerfil = () => {
     <Caixa>
       <Container>
         <Button
-          className={activeTab === "Tab 1" ? "selected" : "active"}
-          selected={activeTab === "Tab 1"}
-          onClick={() => handleChangeTab("Tab 1")}
-        >
+          className={activeTab === 'publicacoes' ? 'selected' : 'active'}
+          selected={activeTab === 'publicacoes'}
+          onClick={() => handleChangeTab('publicacoes')} >
           Publicações
         </Button>
         <Button
-          className={activeTab === "Tab 2" ? "active" : " "}
-          selected={activeTab === "Tab 2"}
-          onClick={() => handleChangeTab("Tab 2")}
-        >
+          className={activeTab === 'sobre-voce' ? 'active' : ' '}
+          selected={activeTab === 'sobre-voce'}
+          onClick={() => handleChangeTab('sobre-voce')} >
           Sobre Você
         </Button>
         <Button
-          className={activeTab === "Tab 3" ? "active" : " "}
-          selected={activeTab === "Tab 3"}
-          onClick={() => handleChangeTab("Tab 3")}
-        >
+          className={activeTab === 'personagens' ? 'active' : ' '}
+          selected={activeTab === 'personagens'}
+          onClick={() => handleChangeTab('personagens')} >
           Personagens
         </Button>
         <Button
-          className={activeTab === "Tab 4" ? "active" : " "}
-          selected={activeTab === "Tab 4"}
-          onClick={() => handleChangeTab("Tab 4")}
-        >
+          className={activeTab === 'campanhas' ? 'active' : ' '}
+          selected={activeTab === 'campanhas'}
+          onClick={() => handleChangeTab('campanhas')} >
           Campanhas
         </Button>
         <Button
-          className={activeTab === "Tab 5" ? "active" : " "}
-          selected={activeTab === "Tab 5"}
-          onClick={() => handleChangeTab("Tab 1")}
-        >
+          className={activeTab === 'amigos' ? 'active' : ' '}
+          selected={activeTab === 'amigos'}
+          onClick={() => handleChangeTab('amigos')} >
           Amigos
         </Button>
       </Container>
-      <div className="tab_content">{renderTabContent()}</div>
+      <div className='tab_content'>
+        {renderTabContent()}
+      </div>
     </Caixa>
+
   );
 };
 

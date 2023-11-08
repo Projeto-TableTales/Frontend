@@ -1,19 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 84vw;
-  height:200vh;
+  max-width: 84vw;
   flex-direction: row;
   align-items: top;
   justify-content: center;
   display:flex;
   background-color: rgba(224, 182, 251, 0.42);
-  
+`;
+
+export const LeftContainer = styled.div`
+  width: 55vw;
+  flex-direction: column;
+  align-items: center;
+  display:flex;
+  background-color: rgba(224, 182, 251, 0.42);
 `;
 
 export const Frame = styled.div`
   margin-top:5vh;
-  width: 55vw;
+  width: 90%;
   height:15vh;
   display: flex;
   background-color: #1E1429;
@@ -22,17 +28,26 @@ export const Frame = styled.div`
   align-items: center;
 
 `;
+
+export const Frame3 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin:5vh 0;
+  width: 90%;
+  min-height:45vh;
+`;
 export const Frame2 = styled.div`
   margin-top:5vh;
   margin-left:5vh;
   width: 20vw;
-  height:45vh;
+  height:50vh;
   display: flex;
   background-color: #1E1429;
   border-radius: 10px;
   justify-content: right; 
   align-items: center;
-
 `;
 export const Img = styled.img`
   border-radius:50%;
