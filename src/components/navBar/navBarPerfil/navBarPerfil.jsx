@@ -14,12 +14,14 @@ const NavBarPerfil = () => {
   }
   function renderTabContent(){
     switch(activeTab){
-      case 'Tab 1':
+      case 'publicacoes':
         return <PublicationsTab fase = 'Publicações'/>
-      case 'Tab 2':
+      case 'sobre-voce':
          return <AboutTab  fase = 'Sobre Você'/> 
-       case 'Tab 3':
+       case 'personagens':
          return <CharacterTab fase = 'Personagens'/>
+       case 'campanhas':
+         return <CampaignTab fase = 'Campanhas'/>
     }
   }
 
