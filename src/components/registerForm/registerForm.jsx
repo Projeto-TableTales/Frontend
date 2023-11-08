@@ -10,11 +10,11 @@ import {
   Title,
   ErrorMessage,
 } from "./styled";
-import axios from "axios";
-import { Navigate } from "react-router-dom";
 import DropdownButton from "./../dropdown/dropdownButton";
 import SelectCountry from "../selectCountry/selectCountry";
 import { useNavigate } from "react-router-dom/dist";
+import api from "../../api/api";
+
 
 const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -33,8 +33,8 @@ const RegisterForm = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/rpgwiki/register",
+      const response = await api.post(
+        "/rpgwiki/register",
         {
           nome,
           pais,

@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 export const Container = styled.div`
   width: 82vw;
   height: 200vh;
@@ -10,7 +8,7 @@ export const Container = styled.div`
   justify-content: start;
   align-items: start;
   background-color: rgba(224, 182, 251, 0.42);
-  padding: 20px; 
+  padding: 20px;
 `;
 
 export const Title = styled.div`
@@ -22,7 +20,7 @@ export const Title = styled.div`
 
 export const ImageRow = styled.div`
   flex-direction: row;
-  display: flex; 
+  display: flex;
   align-items: center;
 `;
 
@@ -41,41 +39,65 @@ export const Imagem = styled.img`
 `;
 
 export const BoxPersonagem = styled.div`
-  background-color: #1E1429; 
+  background-color: #1e1429;
   color: white;
   border-radius: 20px;
-  padding: 20px; 
+  padding: 20px;
   width: 400px;
-  height:150px;
+  height: 150px;
   align-items: center;
 `;
 
 export const TextInfo = styled.div`
   flex-direction: column;
-  display: flex; 
+  display: flex;
   align-items: start;
   padding-left: 20px;
 `;
 
 export const Icon = styled.button`
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
   color: black;
-  background-color: #AB5F91;
+  background-color: #ab5f91;
   border: 2px solid black;
   border-radius: 50%;
   width: 6vh;
-  height:6vh;
+  height: 6vh;
   transition: color 0.3s, background-color 0.3s, border-color 0.3s;
-    svg {
-      font-size: 28px; 
-    }
-    &:hover {
-      color: pink;
-      background-color: black;
-      border-color: black;
-    }
+  svg {
+    font-size: 28px;
+  }
+  &:hover {
+    color: pink;
+    background-color: black;
+    border-color: black;
+  }
+`;
+
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* Por padrão, você terá 1 coluna por linha */
+  gap: 20px; /* Espaçamento entre os elementos */
+
+  /* Ajuste o número de colunas por linha com base na largura da tela */
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 colunas por linha em telas maiores que 768px */
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 colunas por linha em telas maiores que 1200px */
+  }
 `;

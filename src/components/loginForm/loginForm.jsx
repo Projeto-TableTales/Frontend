@@ -8,7 +8,7 @@ import {
   ErrorMessage,
 } from "./styled";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/api";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
@@ -18,15 +18,15 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = window.localStorage.getItem("token")
-    token && navigate('/home')
-  }, [navigate])
+    const token = window.localStorage.getItem("token");
+    token && navigate("/home");
+  }, [navigate]);
 
   const submit = async (e) => {
     e.preventDefault();
     console.log(email, senha);
     try {
-      const response = await axios.post("http://localhost:8080/rpgwiki/login", {
+      const response = await api.post("/rpgwiki/login", {
         email: email,
         senha: senha,
       });

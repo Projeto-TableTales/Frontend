@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080', // Substitua pela URL da sua API
+  baseURL: process.env.REACT_APP_API_URL,// Substitua pela URL da sua API
 });
 
 // Intercepta todas as requisições e adiciona o token ao cabeçalho "Authorization"

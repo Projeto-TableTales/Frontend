@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Error, Form, Input, Success, Title } from "./styled";
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import api from "../../api/api";
 
 const CodeRecovery = () => {
@@ -21,7 +21,7 @@ const CodeRecovery = () => {
                     senha: password,
                     codigoRecuperacaoSenha: code
                 }
-                const response = await api.post("/alterar-senha",body);
+                const response = await api.post("/rpgwiki/alterar-senha",body);
                     setSuccessMsg(response.data)
                 setTimeout(()=> {
                     navigate("/login")

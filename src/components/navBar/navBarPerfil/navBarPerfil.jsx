@@ -3,6 +3,7 @@ import { Container, Button, Caixa } from "./styled";
 import PublicationsTab from "../../publicationsTab/publicationsTab";
 import AboutTab from "../../aboutTab/aboutTab";
 import CharacterTab from "../../characterTab/characterTab";
+import CampaignTab from "../../campaignTab/campaignTab";
 import { useNavigate } from "react-router-dom";
 
 const NavBarPerfil = () => {
@@ -11,19 +12,14 @@ const NavBarPerfil = () => {
   function handleChangeTab(tabName) {
     setActiveTab(tabName)
   }
-
-  function renderTabContent() {
-    switch (activeTab) {
-      case 'publicacoes':
-        return <PublicationsTab fase='Publicações' />
-      case 'sobre-voce':
-        return <AboutTab fase='Sobre Você' />
-      case 'personagens':
-        return <CharacterTab fase='Personagens' />
-      case 'campanhas':
-        return <CharacterTab fase='Campanhas' />
-      case 'amigos':
-        return <CharacterTab fase='Amigos' />
+  function renderTabContent(){
+    switch(activeTab){
+      case 'Tab 1':
+        return <PublicationsTab fase = 'Publicações'/>
+      case 'Tab 2':
+         return <AboutTab  fase = 'Sobre Você'/> 
+       case 'Tab 3':
+         return <CharacterTab fase = 'Personagens'/>
     }
   }
 
