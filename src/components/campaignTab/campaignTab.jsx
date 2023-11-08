@@ -1,34 +1,30 @@
 import { Container, Box, Title, BoxCampaign, Imagem } from "./styled";
 import bruxo from "./../../assets/bruxo.png";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../api/api";
 
 const CampaignTab = () => {
   const [campaignData, setCampaignData] = useState([]);
   const [campaignFollowData, setCampaignFollowData] = useState([]);
 
-
   const fetchData = async (url, dataSetter) => {
     try {
-      const token = localStorage.getItem("token");
-      if (token) {
-        const config = {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
-
-        const response = await axios.get(url, config);
-        dataSetter(response.data);
-      }
+      const response = await api.get(url);
+      dataSetter(response.data);
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    fetchData("http://localhost:8080/campanha/buscarcampanhas", setCampaignData);
-    fetchData("http://localhost:8080/campanha/buscarcampanhaseguidas", setCampaignFollowData);
+    fetchData(
+      "/campanha/buscarcampanhas",
+      setCampaignData
+    );
+    fetchData(
+      "/campanha/buscarcampanhaseguidas",
+      setCampaignFollowData
+    );
   }, []);
 
   const renderCampaigns = (campaignList) => {

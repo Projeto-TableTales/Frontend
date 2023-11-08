@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import {
   ScreenBackground,
   ModalFrame,
@@ -18,6 +17,7 @@ import {
 } from "./styled";
 import { RxCross2 } from "react-icons/rx";
 import bruxo from "./../../../assets/bruxo.png";
+import api from "../../../api/api";
 
 const ModalCreateCharacter = ({ isOpen, setModalOpen }) => {
   const [characterData, setCharacterData] = useState([]);
@@ -31,31 +31,21 @@ const ModalCreateCharacter = ({ isOpen, setModalOpen }) => {
   };
 
   const requestApi = () => {
-    const token = localStorage.getItem("token");
+    const dataSend = {
+      nome: nameCharacter,
+      status: statusCharacter,
+      sistema: systemCharacter,
+    };
 
-    if (token) {
-      const dataSend = {
-        nome: nameCharacter,
-        status: statusCharacter,
-        sistema: systemCharacter,
-      };
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      axios
-        .post("http://localhost:8080/personagem", dataSend, config)
-        .then((response) => {
-          setCharacterData(response.data);
-        })
-        .catch((error) => {
-          console.error(error);
-          // Adicione tratamento de erro aqui
-        });
-    }
+    api
+      .post("/personagem", dataSend)
+      .then((response) => {
+        setCharacterData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        // Adicione tratamento de erro aqui
+      });
   };
 
   if (isOpen) {

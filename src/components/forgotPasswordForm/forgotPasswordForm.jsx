@@ -15,7 +15,7 @@ const ForgotPasswordForm = () => {
           const body = {
             email
           }
-          const response = await api.post("/codigo-forgot",body);
+          const response = await api.post("/rpgwiki/codigo-forgot",body);
           setSuccessMsg(response.data);
           window.localStorage.setItem('email', email);
           setTimeout(()=> {
