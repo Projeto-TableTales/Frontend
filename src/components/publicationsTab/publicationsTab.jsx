@@ -1,4 +1,4 @@
-import { Container, Frame, Icon, Molde, Img, Input, Frame2, LeftContainer, Frame3 } from "./styled";
+import { Container, Frame, Icon, Img, Input, Frame2, LeftContainer, Frame3 } from "./styled";
 import { RiShieldCrossFill } from 'react-icons/ri';
 import UserPerfil from "../../assets/UserPerfil.jpg";
 import { useEffect, useState } from "react";
