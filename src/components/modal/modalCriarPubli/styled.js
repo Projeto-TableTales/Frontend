@@ -91,6 +91,7 @@ export const Img = styled.img`
 export const UserName = styled.span`
     color:#8A7D98;
     font-size:17px;
+    text-transform: capitalize;
 `;
 
 // Inicio dos componentes editaveis:
@@ -102,22 +103,25 @@ export const Editaveis = styled.div`
     display: flex;
     align-items: center;
     flex-direction:column;
+    gap: 5vh;
     
 `;
 export const TituloPubli = styled.input`
     width: 55vw;
-    height:8vh;
+    height:5vh;
     border: 2px solid #8A7D98;
     background-color:#090210;
     border-radius: 10px;
-    margin-bottom:2%;
+    color:white;
 `;
 export const Comentario = styled.input`
     width: 55vw;
-    height:14vh;
+    height:10vh;
     border: 2px solid #8A7D98;
     background-color:#090210;
     border-radius: 10px;
+    color: white;
+    
 `;
 
 // Seleção de arquivos de imagem e video :
@@ -139,6 +143,7 @@ export const SubTitulo = styled.p`
 `;
 export const ButtonSelect = styled.button`
     display: flex;
+    cursor: pointer;
     justify-content: center; 
     align-items: center;
     color: black;
@@ -152,6 +157,23 @@ export const ButtonSelect = styled.button`
         font-size: 28px; 
         }
         &:hover {
+        color: pink;
+        background-color: black;
+        border-color: black;
+        }
+`;
+export const ButtonAdd = styled.button`
+    display: flex;
+    cursor: pointer;
+    justify-content: center; 
+    align-items: center;
+    color: black;
+    background-color: #AB5F91;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 12vh;
+    height:6vh;
+    &:hover {
         color: pink;
         background-color: black;
         border-color: black;

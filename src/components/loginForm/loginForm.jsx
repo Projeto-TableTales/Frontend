@@ -32,7 +32,7 @@ const LoginForm = () => {
       });
       // Extrair o token da resposta
       const token = response.data.token;
-      const id = response.data.id
+      const id = response.data.idUsuario
 
       // Armazenar o token no localStorage
       localStorage.setItem("token", token);

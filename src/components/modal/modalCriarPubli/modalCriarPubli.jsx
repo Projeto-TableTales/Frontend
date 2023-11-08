@@ -1,46 +1,32 @@
-import {ScreenBackground,
-        ModalFrame,
-        Button,
-        Titulo,
-        UserName,
-        TituloPubli,
-        Comentario,
-        SelecionarArquivo,
-        SubTitulo,
-        ButtonSelect,
-        Img,
-        User,
-        Divider,
-        Editaveis} from "./styled";
-import {RxCross2} from 'react-icons/rx';
-import {BsImages} from 'react-icons/bs';
-import {BiSolidVideos} from 'react-icons/bi';
-import {AiOutlineFileGif} from 'react-icons/ai';
+import {
+    ScreenBackground,
+    ModalFrame,
+    Button,
+    Titulo,
+    UserName,
+    TituloPubli,
+    Comentario,
+    SelecionarArquivo,
+    SubTitulo,
+    ButtonSelect,
+    Img,
+    User,
+    Divider,
+    Editaveis,
+    ButtonAdd
+} from "./styled";
+import { RxCross2 } from 'react-icons/rx';
+import { BsImages } from 'react-icons/bs';
+import { BiSolidVideos } from 'react-icons/bi';
+import { AiOutlineFileGif } from 'react-icons/ai';
 import UserPerfil from "../../../assets/UserPerfil.jpg";
 import { useState } from "react";
-const ModalCriarPubli = ({isOpen, setModalOpen}) => {
-    
-    // const [publicacao, setPublicacao] = useState({
-    //     userName: 'UserName',
-    //     titulo: '',
-    //     comentario: '',
-    //     tipoArquivo: 'Imagem', // Padrão para imagem
-    //   });
-    
-    //   const criarPublicacao = () => {
-    //     console.log('Criando publicação:', publicacao);
-    //     setPublicacao({
-    //       userName: 'UserName',
-    //       titulo: '',
-    //       comentario: '',
-    //       tipoArquivo: 'Imagem',
-    //     });
-    //     // Feche o modal
-    //     setModalOpen(false);
-    //   };
-    
+const ModalCriarPubli = ({ isOpen, setModalOpen, criarPublicacoes, usuario }) => {
+
+
+
     const [titulo, setTitulo] = useState('');
-    const [comentario, setComentario] = useState('');
+    const [conteudo, setComentario] = useState('');
     // const [tipoArquivo, setTipoArquivo] = useState('Imagem'); // Padrão para imagem
 
     const handleTituloChange = (e) => {
@@ -51,17 +37,29 @@ const ModalCriarPubli = ({isOpen, setModalOpen}) => {
         setComentario(e.target.value);
     };
 
-    if(isOpen){
+    const click = () => {
+        
+        const body = {
+            titulo,
+            conteudo
+        }
+        criarPublicacoes(body);
+        setTitulo("");
+        setComentario("");
+        setModalOpen(false);
+    }
+
+    if (isOpen) {
         return (
             <ScreenBackground>
                 <ModalFrame>
-                    
+
                     <Titulo>CRIAR PUBLICAÇÃO</Titulo>
                     <Divider className="LinhaDivisoria"></Divider>
-                    
+
                     <User>
                         <Img src={UserPerfil} alt="ImagemPerfil" />
-                        <UserName>UserName</UserName>
+                        <UserName>{usuario.nome}</UserName>
                     </User>
 
                     <Editaveis>
@@ -76,26 +74,27 @@ const ModalCriarPubli = ({isOpen, setModalOpen}) => {
                             type="text"
                             name="Comentário"
                             id="Comentário"
-                            value={comentario}
+                            value={conteudo}
                             onChange={handleComentarioChange}
                         />
+                    <ButtonAdd onClick={click}>Adicionar</ButtonAdd>
                     </Editaveis>
 
                     <SelecionarArquivo>
                         <SubTitulo>Adicionar a Publicação:</SubTitulo>
-                        <ButtonSelect><BsImages/></ButtonSelect>
-                        <ButtonSelect><BiSolidVideos/></ButtonSelect>
-                        <ButtonSelect><AiOutlineFileGif/></ButtonSelect>
+                        <ButtonSelect><BsImages /></ButtonSelect>
+                        <ButtonSelect><BiSolidVideos /></ButtonSelect>
+                        <ButtonSelect><AiOutlineFileGif /></ButtonSelect>
                     </SelecionarArquivo>
 
-                    <Button onClick={setModalOpen}><RxCross2/></Button>
+                    <Button onClick={() => setModalOpen(false)}><RxCross2 /></Button>
                 </ModalFrame>
 
             </ScreenBackground>
         );
     }
     return null;
-    
-  }
-  
-  export default  ModalCriarPubli;
+
+}
+
+export default ModalCriarPubli;
